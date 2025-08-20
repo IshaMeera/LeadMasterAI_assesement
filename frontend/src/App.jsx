@@ -1,4 +1,5 @@
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import React from 'react';
+import { Route, Routes, Navigate } from 'react-router-dom';
 import Login from './pages/Login';
 
 const Dashboard = () => {
@@ -14,7 +15,6 @@ const PrivateRoute = ({ children }) => {
 function App() {
   return (
     <>
-     <Router>
       <Routes>
         {/* public Routes */}
       <Route path="/login" element={<Login />}/>
@@ -23,16 +23,13 @@ function App() {
       <Route
         path="/dashboard"
         element={
-          <PrivateRoute>
-            <Dashboard />
-          </PrivateRoute>
+          <PrivateRoute><Dashboard /></PrivateRoute>
         }
         />
 
         {/* default login */}
         <Route path="*" element={<Navigate to="/login"/>}/>
       </Routes>
-     </Router>
     </>
   )
 }
