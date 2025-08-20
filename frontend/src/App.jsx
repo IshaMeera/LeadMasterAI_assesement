@@ -1,10 +1,8 @@
 import React from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
-import Login from './pages/Login';
-
-const Dashboard = () => {
-  return <h2>Welcome to the Dashboard</h2>;
-};
+import Login from './pages/auth/Login';
+import Register from './pages/auth/Register';
+import Dashboard from './pages/dashboard';
 
 // Protected Route wrapper
 const PrivateRoute = ({ children }) => {
@@ -18,6 +16,7 @@ function App() {
       <Routes>
         {/* public Routes */}
       <Route path="/login" element={<Login />}/>
+      <Route path="/register" element={<Register />}/>
 
        {/* protected Routes */}
       <Route
